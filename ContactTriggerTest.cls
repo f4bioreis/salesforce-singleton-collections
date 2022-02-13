@@ -24,7 +24,7 @@ private class ContactTriggerTest {
         ct.LastName = 'Contact';
         ct.AccountId = testAcct.Id;
 
-        // This illustrates that the total amount of queries will be increased upon the first
+        // This illustrates that the total amount of queries should be increased upon the first
         // "getAccountMap" call
 
         Integer numberOfQueriesSoFar = Limits.getQueries();
@@ -33,8 +33,8 @@ private class ContactTriggerTest {
 
         System.assertNotEquals(numberOfQueriesSoFar, updatedNumberOfQueries);
 
-        // Since "getAccountMap" uses a query to define the map, we must ensure that
-        // the number of queries is not increased after the first call
+        // Since "getAccountMap" uses a query to define the map, it must be ensured that
+        // the number of queries should not be increased after the first call
 
         numberOfQueriesSoFar = updatedNumberOfQueries;
         accountMap = ContactUtil.getAccountMap(new List<Contact>{ct});

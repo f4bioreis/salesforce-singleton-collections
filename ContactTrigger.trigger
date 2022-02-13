@@ -3,7 +3,6 @@ trigger ContactTrigger on Contact (before insert) {
     Boolean beforeInsert = Trigger.operationType == TriggerOperation.BEFORE_INSERT;
 
     if (beforeInsert) {
-        // "setAccountNames" implements an example of related records' fields requirement
         ContactTriggerHandler.setAccountNames(Trigger.new);
     }
 
